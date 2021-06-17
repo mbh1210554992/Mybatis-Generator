@@ -1,0 +1,33 @@
+1. pom.xml：数据库驱动依赖：
+      <!-- oracle 数据库驱动-->
+	  <dependency>
+		  <groupId>oracle</groupId>
+		  <artifactId>oracledriver</artifactId>
+		  <version>11.2.0.2</version>
+		  <scope>system</scope>
+		  <systemPath>${basedir}/src/main/resources/oracledriver-11.2.0.2.jar</systemPath>
+	  </dependency>
+
+2. generatorConfig.xml：
+    2.1数据库地址：
+            <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
+    		<jdbcConnection driverClass="数据库驱动"
+    			connectionURL="数据库url" userId="用户名"
+    			password="密码">
+    			<!--是否查询注释-->
+    			<property name="remarksReporting" value="true"></property>
+    		</jdbcConnection>
+
+
+    2.2需要生成的数据表配置：
+            <!-- 指定数据库表  domainObjectName:生成的实体类名-->
+            <table tableName="数据库表名"
+                domainObjectName="生成的实体类名"
+                enableCountByExample="false"
+                enableUpdateByExample="false"
+                enableDeleteByExample="false"
+                enableSelectByExample="false"
+                selectByExampleQueryId="false" />
+
+
+
